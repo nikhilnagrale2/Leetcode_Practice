@@ -17,6 +17,22 @@ public:
     }
 };
 
+//  Optimized Solution
+//  Time Complexity - O(n)
+//  Space Complexity - O(n)
+class Solution {
+public:
+    int tribonacci(int n) {
+        int dp[n+1];
+        if(n==0) return 0; else dp[0]=0;
+        if(n==1) return 1; else dp[1]=1;
+        if(n==2) return 1; else dp[2]=1;
+        for(int i=3;i<=n;i++)
+            dp[i]=dp[i-3]+dp[i-2]+dp[i-1];
+        return dp[n];
+    }
+};
+
 //  Optimized Solution - Very Good Solution - Expert Level Thinking.
 //  You can do the same with three variables.
 //  Time Complexity - O(n)

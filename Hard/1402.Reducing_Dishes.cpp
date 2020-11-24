@@ -46,3 +46,6 @@ public:
 
 //  Binary Search Peak Finding Solution
 //  https://leetcode.com/problems/reducing-dishes/discuss/563911/Python-O(n*lg(n))-Peak-Finding-with-drawing-explanation
+
+//  DP Solution
+//  https://leetcode.com/problems/reducing-dishes/discuss/719181/Simple-dp-solution-with-explanation-C%2B%2B

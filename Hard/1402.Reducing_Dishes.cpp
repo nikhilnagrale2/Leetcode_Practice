@@ -23,7 +23,23 @@ public:
     }
 };
 
-
-//  Naive Solution
-//  Time Complexity - O(n)
+//  Prefix Sum Solution
+//  Time Complexity - O(nlogn)
 //  Space Complexity - O(1)
+
+class Solution
+{
+public:
+    int maxSatisfaction(vector<int> &satisfaction)
+    {
+        int ans = 0, presum = 0, cur_sat = 0;
+        sort(satisfaction.begin(), satisfaction.end());
+        for (int i = satisfaction.size() - 1; i >= 0; i--)
+        {
+            presum += satisfaction[i];
+            cur_sat += presum;
+            ans = max(cur_sat, ans);
+        }
+        return ans;
+    }
+};

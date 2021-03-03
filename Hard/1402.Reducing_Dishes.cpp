@@ -89,7 +89,7 @@ public:
 
             if (!left && !right)
             {
-                return get_coef_sum(satisfaction, middle);
+                return cur_sum;
             }
             else if (left)
             {

@@ -1,3 +1,15 @@
+/*
+  Problem Link    :   https://leetcode.com/problems/squares-of-a-sorted-array
+
+  Author          :   Nikhil Nagrale
+  Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
+  Codechef        :   https://www.codechef.com/users/nikhilnagrale2
+  Github          :   https://github.com/nikhilnagrale2
+  Leetcode        :   https://leetcode.com/nikhilnagrale2
+
+  Copyright       :   Study and Solve. :)
+*/
+
 // Naive Solution Using Sort
 // Time Complexity - O(nlogn)
 // Space Complexity - O(n)
@@ -18,9 +30,26 @@ public:
     }
 };
 
+// Naive Solution Using Sort In place
+// Time Complexity - O(nlogn)
+// Space Complexity - O(1)
+class Solution
+{
+public:
+    vector<int> sortedSquares(vector<int> &A)
+    {
+        for (int i = 0; i < A.size(); i++)
+        {
+            A[i] = A[i] * A[i];
+        }
+        sort(A.begin(), A.end());
+        return A;
+    }
+};
+
 // Solution Using Two Pointer
 // Time Complexity - O(n)
-// Space Complexity - O(n)
+// Space Complexity - O(1)
 class Solution
 {
 public:
@@ -47,7 +76,7 @@ public:
 
 //  Solution Using Doubly Ended Queue
 //  Time Complexity - O(n)
-//  Space Complexity - O()
+//  Space Complexity - O(n)
 class Solution
 {
 public:

@@ -1,4 +1,16 @@
-//  Naive Solution
+/*
+  Problem Link    :   https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
+
+  Author          :   Nikhil Nagrale
+  Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
+  Codechef        :   https://www.codechef.com/users/nikhilnagrale2
+  Github          :   https://github.com/nikhilnagrale2
+  Leetcode        :   https://leetcode.com/nikhilnagrale2
+
+  Copyright       :   Study and Solve. :)
+*/
+
+//  Naive Solution Bucket Sort
 //  Time Complexity - O(n)
 //  Space Complexity - O(n)
 
@@ -27,25 +39,5 @@ public:
             nums[i] = count[nums[i]];
         }
         return nums;
-    }
-};
-
-//  Solution Using Cycle Sort
-//  Time Complexity - O(n)
-//  Space Complexity - O(1)
-class Solution
-{
-public:
-    string restoreString(string s, vector<int> &indices)
-    {
-        for (int i = 0; i < indices.size(); i++)
-        {
-            while (indices[i] != i)
-            {
-                swap(s[i], s[indices[i]]);
-                swap(indices[i], indices[indices[i]]);
-            }
-        }
-        return s;
     }
 };

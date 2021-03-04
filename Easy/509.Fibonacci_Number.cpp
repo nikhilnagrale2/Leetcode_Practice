@@ -1,3 +1,15 @@
+/*
+  Problem Link    :   https://leetcode.com/problems/fibonacci-number/
+
+  Author          :   Nikhil Nagrale
+  Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
+  Codechef        :   https://www.codechef.com/users/nikhilnagrale2
+  Github          :   https://github.com/nikhilnagrale2
+  Leetcode        :   https://leetcode.com/nikhilnagrale2
+
+  Copyright       :   Study and Solve. :)
+*/
+
 //  Naive Solution - Recursion
 //  Time Complexity - O(2^n)
 //  Space Complexity - O(n)
@@ -13,7 +25,7 @@ public:
     }
 };
 
-//  DP Solution - Bottom Up - Tabulation
+//  Bottom Up Approach Using Memoization
 //  Time Complexity - O(n)
 //  Space Complexity - O(n)
 class Solution
@@ -100,7 +112,7 @@ public:
     }
 };
 
-//  Solution Using Benet's Formula
+//  Solution Using Benet's Formula (Golden Ratio)
 //  Time Complexity - O(1)
 //  Space Complexity - O(1)
 

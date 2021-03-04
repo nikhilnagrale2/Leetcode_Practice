@@ -1,5 +1,5 @@
 /*
-  Problem Link    :   https://leetcode.com/problems/number-of-good-pairs/
+  Problem Link    :   
 
   Author          :   Nikhil Nagrale
   Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
@@ -10,22 +10,21 @@
   Copyright       :   Study and Solve. :)
 */
 
-//  Solution using Maps
+//  Simple Solution
 //  Time Complexity - O(n)
-//  Space Complexity - O(n)
+//  Space Complexity - O(1)
+
 class Solution
 {
 public:
-    int numIdenticalPairs(vector<int> &nums)
+    int largestAltitude(vector<int> &gain)
     {
-        int pairs = 0;
-        map<int, int> mp;
-        for (int i = 0; i < nums.size(); i++)
+        int current = 0, highest = 0;
+        for (auto x : gain)
         {
-            mp[nums[i]]++;
+            current += x;
+            highest = max(highest, current);
         }
-        for (auto x : mp)
-            pairs += (x.second) * (x.second - 1) / 2;
-        return pairs;
+        return highest;
     }
 };

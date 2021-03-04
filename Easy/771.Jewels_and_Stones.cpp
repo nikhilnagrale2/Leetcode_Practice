@@ -1,6 +1,18 @@
-// Naive Solution
-// Time Complexity - O(n*m)
-// Space Complexity - O(1)
+/*
+  Problem Link    :   https://leetcode.com/problems/jewels-and-stones
+
+  Author          :   Nikhil Nagrale
+  Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
+  Codechef        :   https://www.codechef.com/users/nikhilnagrale2
+  Github          :   https://github.com/nikhilnagrale2
+  Leetcode        :   https://leetcode.com/nikhilnagrale2
+
+  Copyright       :   Study and Solve. :)
+*/
+
+//  Naive Solution
+//  Time Complexity - O(n*m)
+//  Space Complexity - O(1)
 
 class Solution
 {
@@ -16,9 +28,10 @@ public:
     }
 };
 
-// Optimized Solution
-// Time Complexity - O(n+m) Or O(max(m,n))
-// Space Complexity - O(m)
+//  Optimized Solution
+//  Time Complexity - O(n+m) Or O(max(m,n))
+//  Space Complexity - O(m)
+
 class Solution
 {
 public:

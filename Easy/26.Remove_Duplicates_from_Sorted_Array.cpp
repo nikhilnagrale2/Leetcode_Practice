@@ -1,3 +1,15 @@
+/*
+  Problem Link    :   https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+
+  Author          :   Nikhil Nagrale
+  Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
+  Codechef        :   https://www.codechef.com/users/nikhilnagrale2
+  Github          :   https://github.com/nikhilnagrale2
+  Leetcode        :   https://leetcode.com/nikhilnagrale2
+
+  Copyright       :   Study and Solve. :)
+*/
+
 //  Naive Solution
 //  Time Complexity - O(n+no. of duplicates)
 //  Space Complexity -  O(1)

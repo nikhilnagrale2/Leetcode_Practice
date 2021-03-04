@@ -1,4 +1,18 @@
-// O(n)
+/*
+  Problem Link    :   https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+
+  Author          :   Nikhil Nagrale
+  Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
+  Codechef        :   https://www.codechef.com/users/nikhilnagrale2
+  Github          :   https://github.com/nikhilnagrale2
+  Leetcode        :   https://leetcode.com/nikhilnagrale2
+
+  Copyright       :   Study and Solve. :)
+*/
+
+//  Naive Solution
+//  Time Complexity - O(n)
+//  Space Complexity - O(n)
 
 class Solution
 {
@@ -18,8 +32,10 @@ public:
     }
 };
 
-//  O(n)
-//  Using Log10(n)
+//  Solution Using Log10(n)
+//  Time Complexity - O(n)
+//  Space Complexity - O(1)
+
 class Solution
 {
 public:
@@ -35,8 +51,10 @@ public:
     }
 };
 
-// But its not fast.
-// above two solutions are much faster
+//  Time Complexity - O(n)
+//  Space Complexity - O(1)
+//  But its not fast above two solutions are much faster
+
 class Solution
 {
 public:

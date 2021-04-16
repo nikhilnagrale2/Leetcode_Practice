@@ -241,3 +241,5 @@ public:
         return NULL;
     }
 };
+
+//Reverse the first list and make equations

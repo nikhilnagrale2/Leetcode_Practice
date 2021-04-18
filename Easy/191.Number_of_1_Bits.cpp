@@ -11,52 +11,51 @@
 */
 
 //  Using Bitset
-class Solution
-{
-public:
-    int hammingWeight(uint32_t n)
-    {
+class Solution {
+   public:
+    int hammingWeight(uint32_t n) {
         bitset<32> x = n;
         return x.count();
     }
 };
 
 //  Using GCC Built in function
-class Solution
-{
-public:
-    int hammingWeight(uint32_t n)
-    {
-        return __builtin_popcount(n);
-    }
+class Solution {
+   public:
+    int hammingWeight(uint32_t n) { return __builtin_popcount(n); }
 };
 
 //  Bit Manipulation Way
-class Solution
-{
-public:
-    int hammingWeight(uint32_t n)
-    {
+class Solution {
+   public:
+    int hammingWeight(uint32_t n) {
         int res = 0;
-        while (n)
-        {
-            if (n & 1)
-                res++;
+        while (n) {
+            if (n & 1) res++;
             n >>= 1;
         }
         return res;
     }
 };
 
-//  Brian Kernighan's Algorithm
-class Solution
-{
-public:
-    int hammingWeight(uint32_t n)
-    {
+//  Bit Masking
+class Solution {
+   public:
+    int hammingWeight(uint32_t n) {
         int res = 0;
-        while (n)
-        {
+        for (int i = 0; i < 32; i++) {
+            if (n & (1 << i)) res++;
+        }
+        return res;
+    }
+};
+
+//  Brian Kernighan's Algorithm
+class Solution {
+   public:
+    int hammingWeight(uint32_t n) {
+        int res = 0;
+        while (n) {
             res++;
             n &= n - 1;
         }

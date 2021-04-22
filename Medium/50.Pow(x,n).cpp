@@ -10,17 +10,15 @@
   Copyright       :   Study and Solve. :)
 */
 
-//  Linear
+//  Linear TLE
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
-class Solution
-{
-public:
-    double myPow(double x, int n)
-    {
+class Solution {
+   public:
+    double myPow(double x, int n) {
         double ans = 1;
-        while (n--)
-            ans *= x;
+        long long k = abs(n);
+        while (k--) ans *= x;
         return n >= 0 ? ans : 1 / ans;
     }
 };
@@ -28,3 +26,27 @@ public:
 //  Fast Exponentiation
 //  Time Complexity - O(logn)
 //  Space Complexity - O(1)
+class Solution {
+   public:
+    double myPow(double x, int n) {
+        double ans = 1.0;
+        long long nn = n;
+        nn = abs(n);
+        while (nn) {
+            if (nn % 2) {
+                nn -= 1;
+                ans *= x;
+            } else {
+                nn /= 2;
+                x *= x;
+            }
+        }
+        return n < 0 ? 1.0 / ans : ans;
+    }
+};
+
+//	Cheating
+class Solution {
+   public:
+    double myPow(double x, int n) { return pow(x, n); }
+};

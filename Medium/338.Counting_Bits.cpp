@@ -13,25 +13,20 @@
 //  Bruteforce
 //  Time Complexity - O(n*(num of bits))
 //  Space Complexity - O(1) - if ans is ignored
-class Solution
-{
-public:
-    int count(int num)
-    {
+class Solution {
+   public:
+    int count(int num) {
         int count = 0;
-        while (num)
-        {
+        while (num) {
             count++;
             num &= num - 1;
         }
         return count;
     }
 
-    vector<int> countBits(int num)
-    {
+    vector<int> countBits(int num) {
         vector<int> ans;
-        for (int i = 0; i <= num; i++)
-            ans.push_back(count(i));
+        for (int i = 0; i <= num; i++) ans.push_back(count(i));
         return ans;
     }
 };
@@ -39,14 +34,11 @@ public:
 //  One Pass Solution
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
-class Solution
-{
-public:
-    vector<int> countBits(int num)
-    {
+class Solution {
+   public:
+    vector<int> countBits(int num) {
         vector<int> ans(num + 1, 0);
-        for (int i = 1; i <= num; i++)
-            ans[i] = ans[i << 2] + (i & 1);
+        for (int i = 1; i <= num; i++) ans[i] = ans[i << 2] + (i & 1);
         return ans;
     }
 };
@@ -54,14 +46,11 @@ public:
 //  One Pass Solution
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
-class Solution
-{
-public:
-    vector<int> countBits(int num)
-    {
+class Solution {
+   public:
+    vector<int> countBits(int num) {
         vector<int> ans(num + 1, 0);
-        for (int i = 1; i <= num; i++)
-            ans[i] = ans[(i) & (i - 1)] + 1;
+        for (int i = 1; i <= num; i++) ans[i] = ans[(i) & (i - 1)] + 1;
         return ans;
     }
 };
@@ -69,14 +58,11 @@ public:
 //  Using GCC function
 //  Time Complexity - O(n*(num of bits))
 //  Space Complexity - O(1) - if ans is ignored
-class Solution
-{
-public:
-    vector<int> countBits(int num)
-    {
+class Solution {
+   public:
+    vector<int> countBits(int num) {
         vector<int> ans;
-        for (int i = 0; i <= num; i++)
-            ans.push_back(__builtin_popcount(i));
+        for (int i = 0; i <= num; i++) ans.push_back(__builtin_popcount(i));
         return ans;
     }
 };

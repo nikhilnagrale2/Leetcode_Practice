@@ -1,5 +1,5 @@
 /*
-  Problem Link    :
+  Problem Link    :   https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
   Author          :   Nikhil Nagrale
   Codeforces      :   https://codeforces.com/profile/nikhilnagrale2

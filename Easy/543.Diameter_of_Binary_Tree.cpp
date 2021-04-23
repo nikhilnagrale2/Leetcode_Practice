@@ -29,14 +29,14 @@
 class Solution {
    public:
     int height(TreeNode *root) {
-        if (root == NULL) return 0;
+        if (!root) return 0;
         int lh = height(root->left);
         int rh = height(root->right);
         return max(lh, rh) + 1;
     }
 
     int diameterOfBinaryTree(TreeNode *root) {
-        if (root == NULL) return 0;
+        if (!root) return 0;
 
         int lh = height(root->left);
         int rh = height(root->right);
@@ -54,7 +54,7 @@ class Solution {
 class Solution {
    public:
     int height(TreeNode *root, int &diameter) {
-        if (root == NULL) return NULL;
+        if (!root) return NULL;
 
         int lh = height(root->left, diameter);
         int rh = height(root->right, diameter);
@@ -65,7 +65,7 @@ class Solution {
     }
 
     int diameterOfBinaryTree(TreeNode *root) {
-        if (root == NULL) return 0;
+        if (!root) return 0;
 
         int diameter = INT_MIN;
         height(root, diameter);

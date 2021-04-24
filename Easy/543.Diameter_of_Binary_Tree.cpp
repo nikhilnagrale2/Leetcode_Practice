@@ -54,7 +54,7 @@ class Solution {
 class Solution {
    public:
     int height(TreeNode *root, int &diameter) {
-        if (!root) return NULL;
+        if (!root) return 0;
 
         int lh = height(root->left, diameter);
         int rh = height(root->right, diameter);

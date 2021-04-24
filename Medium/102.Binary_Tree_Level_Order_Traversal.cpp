@@ -56,7 +56,7 @@ class Solution {
    public:
     void dfs(TreeNode* root, int level, vector<vector<int>>& ans) {
         if (!root) return;
-        if (ans.size() <= level) ans.push_back({});
+        if (ans.size() == level) ans.push_back({});
         ans[level].push_back(root->val);
         dfs(root->left, level + 1, ans);
         dfs(root->right, level + 1, ans);

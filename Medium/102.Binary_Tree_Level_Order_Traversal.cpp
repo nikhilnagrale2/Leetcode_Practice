@@ -28,16 +28,16 @@
 //  Space Complexity - O(nodes)
 class Solution {
    public:
-    vector<vector<int>> levelOrder(TreeNode *root) {
+    vector<vector<int>> levelOrder(TreeNode* root) {
         if (!root) return {};
         vector<vector<int>> ans;
-        queue<TreeNode *> q;
+        queue<TreeNode*> q;
         q.push(root);
         while (!q.empty()) {
             vector<int> level;
             int size = q.size();
             while (size--) {
-                TreeNode *node = q.front();
+                TreeNode* node = q.front();
                 q.pop();
                 level.push_back(node->val);
                 if (node->left) q.push(node->left);
@@ -45,6 +45,27 @@ class Solution {
             }
             ans.push_back(level);
         }
+        return ans;
+    }
+};
+
+//  Level Order Using DFS Recursive
+//  Time Complexity - O(nodes)
+//  Space Comlexity - O(logn)
+class Solution {
+   public:
+    void dfs(TreeNode* root, int level, vector<vector<int>>& ans) {
+        if (!root) return;
+        if (ans.size() <= level) ans.push_back({});
+        ans[level].push_back(root->val);
+        dfs(root->left, level + 1, ans);
+        dfs(root->right, level + 1, ans);
+    }
+
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if (!root) return {};
+        vector<vector<int>> ans;
+        dfs(root, 0, ans);
         return ans;
     }
 };

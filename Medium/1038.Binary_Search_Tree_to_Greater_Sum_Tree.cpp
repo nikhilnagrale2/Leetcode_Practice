@@ -29,16 +29,16 @@
 //  Space Complexity- O(logn)
 class Solution {
    public:
-    int reversePreorder(TreeNode* root, int sum) {
+    int reverseInorder(TreeNode* root, int sum) {
         if (!root) return sum;
-        sum = reversePreorder(root->right, sum);
+        sum = reverseInorder(root->right, sum);
         root->val += sum;
         sum = root->val;
-        return reversePreorder(root->left, sum);
+        return reverseInorder(root->left, sum);
     }
 
     TreeNode* bstToGst(TreeNode* root) {
-        reversePreorder(root, 0);
+        reverseInorder(root, 0);
         return root;
     }
 };

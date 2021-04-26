@@ -23,7 +23,7 @@
  * };
  */
 
-//  DFS Recursive
+//  DFS Inorder Recursive
 //  Time Complexity - O(n)
 //  Space Complexity- O(logn)
 class Solution {

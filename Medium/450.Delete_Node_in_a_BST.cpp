@@ -23,9 +23,9 @@
  * };
  */
 
-//  
-//  Time Complexity - O(n)
-//  Space Complexity - O(n)
+//  Recursive Solution
+//  Time Complexity - O(h)
+//  Space Complexity - O(1)
 class Solution {
    public:
     TreeNode *deleteNode(TreeNode *root, int key) {

@@ -14,15 +14,11 @@
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
 
-class Solution
-{
-public:
-    string toLowerCase(string str)
-    {
-        for (char &c : str)
-        {
-            if (c >= 'A' && c <= 'Z')
-                c += 32;
+class Solution {
+   public:
+    string toLowerCase(string str) {
+        for (char& c : str) {
+            if (c >= 'A' && c <= 'Z') c += 32;
         }
         return str;
     }
@@ -32,12 +28,23 @@ public:
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
 
-class Solution
-{
-public:
-    string toLowerCase(string str)
-    {
+class Solution {
+   public:
+    string toLowerCase(string str) {
         transform(str.begin(), str.end(), str.begin(), ::tolower);
         return str;
     }
 };
+
+//  Bit Manipulation Solution
+//  Time Complexity - O(n)
+//  Space Complexity - O(1)
+class Solution {
+   public:
+    string toLowerCase(string& str) {
+        for (char& c : str) c |= 0b00100000;
+        return str;
+    }
+}
+
+//  credits:https://leetcode.com/problems/to-lower-case/discuss/348186/C++-Using-bit-manipulation

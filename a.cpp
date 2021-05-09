@@ -18,11 +18,11 @@ vector<int> vis(1000001, 0);
 vector<int> indegree(1000001, 0);
 
 vector<int> res;
-queue<int> q;
+priority_queue<int, vector<int>, greater<int>> q;
 
 void kahn() {
     while (!q.empty()) {
-        int node = q.front();
+        int node = q.top();
         q.pop();
         res.push_back(node);
         for (auto nbr : adj[node]) {
@@ -39,6 +39,7 @@ void solve() {
     cin >> n >> m;
     res.clear();
     for (int i = 1; i <= n; i++) adj[i].clear(), indegree[i] = 0, vis[i] = 0;
+
     while (m--) {
         int a, b;
         cin >> a >> b;

@@ -13,53 +13,46 @@ using namespace std;
 typedef long long ll;
 const int mod = 1e9 + 7;
 
-vector<int> adj[1000001];
-vector<int> vis(1000001, 0);
-vector<int> indegree(1000001, 0);
+vector<vector<char>> grid(1002, vector<char>(1002));
+vector<vector<int>> dist(1002, vector<int>(1002));
+int n;
 
-vector<int> res;
-priority_queue<int, vector<int>, greater<int>> q;
-
-void kahn() {
+void bfs(int i, int j) {
+    int offsets[] = {0, 1, 0, -1, 0};
+    queue<pair<int, int>> q;
+    q.push({i, j});
+    dist[i][j] = 0;
     while (!q.empty()) {
-        int node = q.top();
+        auto node = q.front();
         q.pop();
-        res.push_back(node);
-        for (auto nbr : adj[node]) {
-            indegree[nbr]--;
-            if (indegree[nbr] == 0) {
-                q.push(nbr);
+        int d = dist[node.first][node.second];
+        for (int k = 0; k < 4; k++) {
+            int x = node.first + offsets[k], y = node.second + offsets[k + 1];
+            if (x >= 0 && x < n && y >= 0 && y < n &&
+                (grid[x][y] == 'P' || grid[x][y] == 'E')) {
+                dist[x][y] = d + 1;
+                grid[x][y] = 'T';
+                q.push({x, y});
             }
         }
     }
 }
 
 void solve() {
-    int n, m;
-    cin >> n >> m;
-    res.clear();
-    for (int i = 1; i <= n; i++) adj[i].clear(), indegree[i] = 0, vis[i] = 0;
-
-    while (m--) {
-        int a, b;
-        cin >> a >> b;
-        adj[a].push_back(b);
-        indegree[b]++;
+    int sx, sy, ex, ey;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> grid[i][j];
+            if (grid[i][j] == 'S')
+                sx = i, sy = j;
+            else if (grid[i][j] == 'E')
+                ex = i, ey = j;
+        }
     }
 
-    for (int i = 1; i <= n; i++) {
-        if (indegree[i] == 0) q.push(i);
-    }
-
-    kahn();
-    if (res.size() != n) {
-        cout << "Sandro fails." << endl;
-        return;
-    }
-    for (auto x : res) {
-        cout << x << " ";
-    }
-    cout << endl;
+    bfs(sx, sy);
+    cout << dist[ex][ey] << endl;
 }
 signed main() {
     ios_base::sync_with_stdio(false);

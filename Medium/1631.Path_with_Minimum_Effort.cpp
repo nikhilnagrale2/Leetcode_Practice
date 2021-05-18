@@ -25,8 +25,6 @@ class Solution {
             int effort = pq.top().first;
             int x = pq.top().second.first, y = pq.top().second.second;
             pq.pop();
-            if (effort > dist[x][y]) continue;
-
             if (x == n - 1 && y == m - 1) return effort;
             for (int i = 0; i < 4; i++) {
                 int nx = x + dir[i], ny = y + dir[i + 1];

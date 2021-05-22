@@ -60,3 +60,41 @@ class Solution {
         return ans;
     }
 };
+
+//  Time Complexity - O(n!)
+//  Space Complexity - O(n^2)
+class Solution {
+   public:
+    void solve(int col, vector<string> &board, vector<vector<string>> &ans,
+               vector<bool> &lr, vector<bool> &ud, vector<bool> &ld, int n) {
+        if (col == n) {
+            ans.push_back(board);
+            return;
+        }
+
+        for (int row = 0; row < n; row++) {
+            if (lr[row] == 0 && ld[row + col] == 0 &&
+                ud[n - 1 + col - row] == 0) {
+                board[row][col] = 'Q';
+                lr[row] = true, ld[row + col] = true,
+                ud[n - 1 + col - row] = true;
+                solve(col + 1, board, ans, lr, ud, ld, n);
+                board[row][col] = '.';
+                lr[row] = false, ld[row + col] = false,
+                ud[n - 1 + col - row] = false;
+            }
+        }
+    }
+
+    vector<vector<string>> solveNQueens(int n) {
+        vector<vector<string>> ans;
+        vector<string> board;
+        string s(n, '.');
+        for (int i = 0; i < n; i++) {
+            board.push_back(s);
+        }
+        vector<bool> lr(n), ud(2 * n - 1), ld(2 * n - 1);
+        solve(0, board, ans, lr, ud, ld, n);
+        return ans;
+    }
+};

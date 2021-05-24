@@ -27,11 +27,12 @@
 class Solution {
    public:
     ListNode* middleNode(ListNode* head) {
-        vector<ListNode*> A = {head};
-        while (A.back()->next != NULL) {
-            A.push_back(A.back()->next);
+        vector<ListNode*> list;
+        while (head) {
+            list.push_back(head);
+            head = head->next;
         }
-        return A[A.size() / 2];
+        return list[list.size() / 2];
     }
 };
 

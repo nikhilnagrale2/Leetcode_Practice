@@ -36,6 +36,27 @@ class Solution {
     }
 };
 
+//  Two Traversal
+//  Time Complexity - O(n)
+//  Space Complexity - O(1)
+class Solution {
+   public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* node = head;
+        int n = 0;
+        while (node) {
+            n++;
+            node = node->next;
+        }
+        node = head;
+        n = n / 2;
+        while (n--) {
+            node = node->next;
+        }
+        return node;
+    }
+};
+
 //  Hare and Tortoise Algorithm
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)

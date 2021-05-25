@@ -10,7 +10,7 @@
   Copyright       :   Study and Solve. :)
 */
 
-//  Simple Solution
+//  Optimal Solution
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
 class Solution {
@@ -18,13 +18,10 @@ class Solution {
     ListNode* rotateRight(ListNode* head, int k) {
         if (!head || !head->next || k == 0) return head;
         ListNode* curr = head;
-        int count = 1;
-        while (curr->next) {
-            curr = curr->next;
-            count++;
-        }
+        int len = 1;
+        while (curr->next && ++len) curr = curr->next;
         curr->next = head;
-        k = count - k % count;
+        k = len - k % len;
         while (k--) curr = curr->next;
         head = curr->next;
         curr->next = NULL;

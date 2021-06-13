@@ -47,3 +47,25 @@ class Solution {
         return ans;
     }
 };
+
+//	Binary Search Solution
+//	Time Complexity - O(logn)
+//	Space Complexity - O(1)
+class Solution {
+   public:
+    int mySqrt(int x) {
+        long long lo = 0, hi = x, mid;
+        while (hi - lo > 1) {
+            mid = lo + (hi - lo) / 2;
+            if (mid * mid == x) {
+                return mid;
+            } else if (mid * mid <= x) {
+                lo = mid;
+            } else {
+                hi = mid;
+            }
+        }
+        if (hi * hi <= x) return hi;
+        return lo;
+    }
+};

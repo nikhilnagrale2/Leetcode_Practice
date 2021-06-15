@@ -1,5 +1,6 @@
 /*
-  Problem Link    :   https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+  Problem Link    :
+  https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 
   Author          :   Nikhil Nagrale
   Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
@@ -13,17 +14,12 @@
 //  TIME LIMIT EXCEEDED
 //  Time Complexity - O(n^2)
 //  Space Complexity - O(1)
-class Solution
-{
-public:
-    vector<int> twoSum(vector<int> &numbers, int target)
-    {
-        for (int i = 0; i < numbers.size(); i++)
-        {
-            for (int j = i + 1; j < numbers.size(); j++)
-            {
-                if (numbers[i] + numbers[j] == target)
-                {
+class Solution {
+   public:
+    vector<int> twoSum(vector<int> &numbers, int target) {
+        for (int i = 0; i < numbers.size(); i++) {
+            for (int j = i + 1; j < numbers.size(); j++) {
+                if (numbers[i] + numbers[j] == target) {
                     return {i + 1, j + 1};
                 }
             }
@@ -32,18 +28,15 @@ public:
     }
 };
 
-// Naive Solution
+// Two Pointer Solution
 // Time Complexity - O(n)
 // Space Complexity - O(1)
 
-class Solution
-{
-public:
-    vector<int> twoSum(vector<int> &numbers, int target)
-    {
+class Solution {
+   public:
+    vector<int> twoSum(vector<int> &numbers, int target) {
         int i = 0, j = numbers.size() - 1;
-        while (i < j)
-        {
+        while (i < j) {
             if (target > numbers[i] + numbers[j])
                 i++;
             else if (target < numbers[i] + numbers[j])
@@ -64,36 +57,24 @@ public:
 //  Time Complexity - O(nlogn)
 //  Space Complexity - O(1)
 
-class Solution
-{
-public:
-    vector<int> twoSum(vector<int> &numbers, int target)
-    {
+class Solution {
+   public:
+    vector<int> twoSum(vector<int> &numbers, int target) {
         vector<int> sums;
-        for (int i = 0; i < numbers.size(); i++)
-        {
+        for (int i = 0; i < numbers.size(); i++) {
             int low = 0, high = numbers.size() - 1;
-            while (low <= high)
-            {
+            while (high - low >= 0) {
                 int mid = low + (high - low) / 2;
-                if (numbers[mid] == target - numbers[i])
-                {
-                    if (mid == i)
-                    {
+                if (numbers[mid] == target - numbers[i]) {
+                    if (mid == i) {
                         low = mid + 1;
-                    }
-                    else
-                    {
+                    } else {
                         sums = {i + 1, mid + 1};
                         return sums;
                     }
-                }
-                else if (numbers[mid] < target - numbers[i])
-                {
+                } else if (numbers[mid] < target - numbers[i]) {
                     low = mid + 1;
-                }
-                else
-                {
+                } else {
                     high = mid - 1;
                 }
             }
@@ -105,16 +86,12 @@ public:
 //  HashMap Solution
 //  Time Complexity - O(n)
 //  Space Complexity - O(n)
-class Solution
-{
-public:
-    vector<int> twoSum(vector<int> &numbers, int target)
-    {
+class Solution {
+   public:
+    vector<int> twoSum(vector<int> &numbers, int target) {
         unordered_map<int, int> umap;
-        for (int i = 0; i < numbers.size(); i++)
-        {
-            if (umap.count(target - numbers[i]))
-            {
+        for (int i = 0; i < numbers.size(); i++) {
+            if (umap.count(target - numbers[i])) {
                 return {umap[target - numbers[i]], i + 1};
             }
             umap[numbers[i]] = i + 1;

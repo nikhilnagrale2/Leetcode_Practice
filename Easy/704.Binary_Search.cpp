@@ -13,15 +13,12 @@
 //  Linear Search (I Know This is not asked in question but still)
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
-class Solution
-{
-public:
-    int search(vector<int> &nums, int target)
-    {
+class Solution {
+   public:
+    int search(vector<int>& nums, int target) {
         int index = -1;
         for (int i = 0; i < nums.size(); i++)
-            if (nums[i] == target)
-                index = i;
+            if (nums[i] == target) index = i;
         return index;
     }
 };
@@ -29,22 +26,22 @@ public:
 //  Binary Search
 //  Time Complexity - O(logn)
 //  Space Complexity - O(1)
-class Solution
-{
-public:
-    int search(vector<int> &nums, int target)
-    {
-        int left = 0, right = nums.size() - 1, mid = 0;
-        while (left <= right)
-        {
-            mid = left + (right - left) / 2;
-            if (nums[mid] == target)
-                return mid;
-            else if (nums[mid] > target)
-                right = mid - 1;
+class Solution {
+   public:
+    int search(vector<int>& nums, int target) {
+        int lo = 0, hi = nums.size() - 1;
+        while (hi - lo > 1) {
+            int mid = lo + (hi - lo) / 2;
+            if (nums[mid] <= target)
+                lo = mid;
             else
-                left = mid + 1;
+                hi = mid - 1;
         }
-        return -1;
+        if (target == nums[hi])
+            return hi;
+        else if (target == nums[lo])
+            return lo;
+        else
+            return -1;
     }
 };

@@ -1,5 +1,6 @@
 /*
   Problem Link    :
+  https://leetcode.com/problems/single-element-in-a-sorted-array
 
   Author          :   Nikhil Nagrale
   Codeforces      :   https://codeforces.com/profile/nikhilnagrale2

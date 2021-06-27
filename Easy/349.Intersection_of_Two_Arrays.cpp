@@ -86,7 +86,7 @@ class Solution {
 };
 
 //  Two Pointer Solution
-//  Time Complexity - O(n)
+//  Time Complexity - O(nlogn)
 //  Space Complexity - O(n)
 class Solution {
    public:

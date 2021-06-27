@@ -12,7 +12,7 @@
 */
 
 //  Binary Search Solution
-//  Time Complexity - O(nlogm)
+//  Time Complexity - O(n*m)
 //  Space Complexity - O(n)
 class Solution {
    public:

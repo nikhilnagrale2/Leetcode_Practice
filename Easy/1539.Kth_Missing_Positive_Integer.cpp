@@ -27,6 +27,18 @@ class Solution {
     }
 };
 
+//  Linear
+//  Time Complexity - O(n)
+//  Space Complexity - O(1)
+class Solution {
+   public:
+    int findKthPositive(vector<int>& a, int k) {
+        for (int x : a)
+            if (x <= k) k += 1;
+        return k;
+    }
+};
+
 //  Binary Search
 //  Time Complexity - O(logn)
 //  Space Complexity - O(1)

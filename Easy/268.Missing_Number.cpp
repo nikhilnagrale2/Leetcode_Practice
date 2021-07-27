@@ -12,7 +12,7 @@
 
 //  Sorting Solution
 //  Time Complexity - O(nlogn)
-//  Space Complexity - O(n)
+//  Space Complexity - O(1)
 class Solution {
    public:
     int missingNumber(vector<int> &nums) {
@@ -40,7 +40,7 @@ class Solution {
    public:
     int missingNumber(vector<int> &nums) {
         sort(nums.begin(), nums.end());
-        int left = 0, right = nums.size(), mid = (left + right) / 2;
+        int left = 0, right = nums.size(), mid = left + (right - left) / 2;
         while (left < right) {
             mid = (left + right) / 2;
             if (nums[mid] > mid)
@@ -58,7 +58,7 @@ class Solution {
 class Solution {
    public:
     int missingNumber(vector<int> &nums) {
-        set<int> numSet;
+        unordered_set<int> numSet;
         for (int num : nums) numSet.insert(num);
 
         int expectedNumCount = nums.size() + 1;

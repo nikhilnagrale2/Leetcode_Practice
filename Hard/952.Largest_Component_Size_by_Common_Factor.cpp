@@ -46,3 +46,61 @@ class Solution {
         return sizeOfLComponent;
     }
 };
+
+// Union Find
+class DSU {
+    vector<int> parent;
+    vector<int> ranks;
+
+   public:
+    void init(int n) {
+        parent.resize(n + 1, 0);
+        ranks.resize(n + 1, 0);
+        for (int i = 1; i <= n; i++) {
+            parent[i] = i;
+            ranks[i] = 0;
+        }
+    }
+
+    int findpar(int node) {
+        if (node == parent[node]) {
+            return node;
+        }
+        return parent[node] = findpar(parent[node]);
+    }
+
+    void unionbyrank(int u, int v) {
+        u = findpar(u);
+        v = findpar(v);
+        if (ranks[u] < ranks[v]) {
+            parent[u] = v;
+        } else if (ranks[v] < ranks[u]) {
+            parent[v] = u;
+        } else {
+            parent[v] = u;
+            ranks[u]++;
+        }
+    }
+};
+
+class Solution {
+   public:
+    int largestComponentSize(vector<int> &nums) {
+        int n = size(nums), ans = 1;
+        DSU ds;
+        ds.init(*max_element(begin(nums), end(nums)) + 1);
+        unordered_map<int, int> mp;
+        for (auto c : nums) {
+            for (int f = 2; f <= sqrt(c); f++) {
+                if (c % f == 0) {
+                    ds.unionbyrank(c, f), ds.unionbyrank(c, c / f);
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            ans = max(ans, ++mp[ds.findpar(nums[i])]);
+        }
+        return ans;
+    }
+};

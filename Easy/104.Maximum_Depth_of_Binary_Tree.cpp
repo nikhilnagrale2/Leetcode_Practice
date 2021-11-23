@@ -38,7 +38,7 @@ class Solution {
 
 //  BFS - Level Order Solution
 //  Time Complexity - O(nodes)
-//  Space Complexity - O()
+//  Space Complexity - O(nodes)
 class Solution {
    public:
     int maxDepth(TreeNode* root) {

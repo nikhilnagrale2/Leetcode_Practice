@@ -1,5 +1,6 @@
 /*
-  Problem Link    :   https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
+  Problem Link    :
+  https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
 
   Author          :   Nikhil Nagrale
   Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
@@ -24,16 +25,16 @@
 //  Solution Using stoull and String
 //  Time Complexity - O(n)
 //  Space Complexity - O(n)
-class Solution
-{
-public:
-    int getDecimalValue(ListNode *head)
-    {
+/*
+    Traverse the linked list and convert it into a string.
+    Convert the string into an integer using stoull.
+*/
+class Solution {
+   public:
+    int getDecimalValue(ListNode *head) {
         int ans = 0;
         string s;
-
-        while (head)
-        {
+        while (head) {
             s += to_string(head->val);
             head = head->next;
         }
@@ -45,14 +46,15 @@ public:
 //  Bit Operation Solution
 //  Time Complexity - O(n)
 //  Space Complexity - O(1)
-class Solution
-{
-public:
-    int getDecimalValue(ListNode *head)
-    {
+/*
+    Traverse the linked list and convert it into an integer by left shifting the
+   integer by 1. Bit OR the integer with the value of the current node.
+*/
+class Solution {
+   public:
+    int getDecimalValue(ListNode *head) {
         int ans = 0;
-        while (head)
-        {
+        while (head) {
             ans <<= 1;
             ans |= head->val;
             head = head->next;

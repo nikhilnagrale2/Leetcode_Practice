@@ -19,7 +19,8 @@ class Solution {
         if (!head || !head->next || k == 0) return head;
         ListNode* curr = head;
         int len = 1;
-        while (curr->next && ++len) curr = curr->next;
+        while (curr->next) len++, curr = curr->next;
+
         curr->next = head;
         k = len - k % len;
         while (k--) curr = curr->next;

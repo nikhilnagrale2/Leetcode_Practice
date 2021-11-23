@@ -1,6 +1,4 @@
 /*
-  Problem Link    :
-
   Author          :   Nikhil Nagrale
   Codeforces      :   https://codeforces.com/profile/nikhilnagrale2
   Codechef        :   https://www.codechef.com/users/nikhilnagrale2

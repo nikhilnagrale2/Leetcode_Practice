@@ -46,10 +46,10 @@ class Solution {
     ListNode *reverse(ListNode *head, ListNode *newHead) {
         if (!head) return newHead;
 
-        ListNode *next = head->next;
+        ListNode *temp = head->next;
         head->next = newHead;
         newHead = head;
-        head = next;
+        head = temp;
 
         return reverse(head, newHead);
     }
